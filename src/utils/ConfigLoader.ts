@@ -29,7 +29,8 @@ export class ConfigLoader {
       dataRetentionDays: parseInt(process.env.DATA_RETENTION_DAYS || '30', 10),
       enableAuditLog: process.env.ENABLE_AUDIT_LOG === 'true',
       anonymizeLogs: process.env.ANONYMIZE_LOGS === 'true',
-      allowDataExport: process.env.ALLOW_DATA_EXPORT !== 'false'
+      allowDataExport: process.env.ALLOW_DATA_EXPORT === 'true' || 
+                       process.env.ALLOW_DATA_EXPORT === undefined
     };
   }
 

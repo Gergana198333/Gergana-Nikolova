@@ -8,6 +8,7 @@ import { GDPRConfig, AuditLogEntry } from '../types';
 export class GDPRManager {
   private config: GDPRConfig;
   private auditLog: AuditLogEntry[];
+  private cleanupInterval?: NodeJS.Timeout;
 
   constructor(config: GDPRConfig) {
     this.config = config;
@@ -185,7 +186,17 @@ export class GDPRManager {
     };
 
     // Run cleanup periodically (daily)
-    setInterval(cleanupOldData, 24 * 60 * 60 * 1000);
+    this.cleanupInterval = setInterval(cleanupOldData, 24 * 60 * 60 * 1000);
+  }
+
+  /**
+   * Stop data retention cleanup (cleanup on shutdown)
+   */
+  stopDataRetentionCleanup(): void {
+    if (this.cleanupInterval) {
+      clearInterval(this.cleanupInterval);
+      this.cleanupInterval = undefined;
+    }
   }
 
   /**

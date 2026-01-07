@@ -68,7 +68,7 @@ export class WorkflowEngine {
         {
           id: 'priority',
           type: 'validate',
-          config: { action: 'determine_priority' }
+          config: { rules: ['determine_priority'] }
         },
         {
           id: 'route',
