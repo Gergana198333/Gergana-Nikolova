@@ -1,0 +1,37 @@
+{
+  "name": "ai-automation-workflows",
+  "version": "1.0.0",
+  "description": "AI-powered automation for real-world business workflows with chatbot assistant and configurable prompts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "ai",
+    "automation",
+    "chatbot",
+    "gpt",
+    "workflows",
+    "typescript",
+    "gdpr",
+    "ethics"
+  ],
+  "author": "Gergana Nikolova <gergana@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
