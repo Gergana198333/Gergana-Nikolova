@@ -165,7 +165,8 @@ Provide a compliance report with recommendations.`,
    */
   getCategories(): string[] {
     const categories = new Set<string>();
-    for (const template of this.templates.values()) {
+    const templates = Array.from(this.templates.values());
+    for (const template of templates) {
       if (template.category) {
         categories.add(template.category);
       }
